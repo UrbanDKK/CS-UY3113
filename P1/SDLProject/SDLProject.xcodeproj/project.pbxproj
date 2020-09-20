@@ -15,6 +15,9 @@
 		DBDF1B692323DEEA007CECB1 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDF1B662323DEEA007CECB1 /* SDL2.framework */; };
 		DBDF1B6A2323DEEA007CECB1 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDF1B672323DEEA007CECB1 /* SDL2_image.framework */; };
 		DBDF1B6B2323DEEA007CECB1 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDF1B682323DEEA007CECB1 /* SDL2_mixer.framework */; };
+		E2169E9B2517BADD004437EA /* ball.PNG in CopyFiles */ = {isa = PBXBuildFile; fileRef = E2169E9A2517BAD2004437EA /* ball.PNG */; };
+		E2169E9F2517DA76004437EA /* sun.PNG in CopyFiles */ = {isa = PBXBuildFile; fileRef = E2169E9E2517DA6C004437EA /* sun.PNG */; };
+		E2169EA12517DA7B004437EA /* basket.PNG in CopyFiles */ = {isa = PBXBuildFile; fileRef = E2169E9D2517DA6C004437EA /* basket.PNG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +27,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
+				E2169E9B2517BADD004437EA /* ball.PNG in CopyFiles */,
+				E2169EA12517DA7B004437EA /* basket.PNG in CopyFiles */,
 				DBDF1B612323DE9E007CECB1 /* shaders in CopyFiles */,
+				E2169E9F2517DA76004437EA /* sun.PNG in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +49,9 @@
 		DBDF1B662323DEEA007CECB1 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		DBDF1B672323DEEA007CECB1 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
 		DBDF1B682323DEEA007CECB1 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = ../../../../../Library/Frameworks/SDL2_mixer.framework; sourceTree = "<group>"; };
+		E2169E9A2517BAD2004437EA /* ball.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.PNG; sourceTree = "<group>"; };
+		E2169E9D2517DA6C004437EA /* basket.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basket.PNG; sourceTree = "<group>"; };
+		E2169E9E2517DA6C004437EA /* sun.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.PNG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +90,9 @@
 		DBDF1B512323DE3F007CECB1 /* SDLProject */ = {
 			isa = PBXGroup;
 			children = (
+				E2169E9D2517DA6C004437EA /* basket.PNG */,
+				E2169E9E2517DA6C004437EA /* sun.PNG */,
+				E2169E9A2517BAD2004437EA /* ball.PNG */,
 				DBDF1B5B2323DE8D007CECB1 /* glm */,
 				DBDF1B5D2323DE8D007CECB1 /* ShaderProgram.cpp */,
 				DBDF1B592323DE8D007CECB1 /* ShaderProgram.h */,

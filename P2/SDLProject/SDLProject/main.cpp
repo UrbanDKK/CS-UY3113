@@ -29,9 +29,9 @@ glm::vec3 lp_movement = glm::vec3(0, 0, 0);
 glm::vec3 rp_position = glm::vec3(4.75f, 0, 0); //right paddle
 glm::vec3 rp_movement = glm::vec3(0, 0, 0);
 float paddle_speed = 3.0f;
-float ball_speed = 3.0f;
+float ball_speed = 2.5f;
 float ball_acceleration = 0.2f; //makes game harder along time
-float paddle_acceleration = 0.1f; //makes game harder along time
+float paddle_acceleration = 0.1f;
 float lastTicks = 0.0f;
 bool moving = true;
 
@@ -81,7 +81,7 @@ void Initialize() {
     
     glUseProgram(program.programID);
     
-    glClearColor(0.79f, 0.91f, 0.96f, 1.0f);
+    glClearColor(1.0f, 0.91f, 0.96f, 1.0f);
     glEnable(GL_BLEND);
     
     // Good setting for transparency
@@ -164,7 +164,7 @@ void Ball_Bounce(float dt){
     }
     
     //touch top or bottom--change y direction
-    if(3.75f - ball_position.y <= 0.25f || ball_position.y + 3.75 <= 0.25f){
+    if(3.75f - ball_position.y <= 0.25f || ball_position.y + 3.75f <= 0.25f){
         ball_movement.y = -ball_movement.y;
     }
     
@@ -179,6 +179,15 @@ void Ball_Bounce(float dt){
 }
 
 void Update() {
+    //game ends
+    if(ball_position.x > 4.35f || ball_position.x < -4.35f){
+        moving = false;
+        ball_movement = glm::vec3(0);
+        lp_movement = glm::vec3(0);
+        rp_movement = glm::vec3(0);
+        return;
+    }
+    
     //Delta time
     float ticks = (float)SDL_GetTicks() / 1000.0f;
     float deltaTime = ticks - lastTicks;
@@ -207,13 +216,7 @@ void Update() {
     
     paddle_speed += paddle_acceleration * deltaTime;
     
-    if(ball_position.x > 4.35f || ball_position.x < -4.35f){
-        moving = false;
-        ball_movement = glm::vec3(0);
-        lp_movement = glm::vec3(0);
-        rp_movement = glm::vec3(0);
-        
-    }
+    
 }
 
 void Render() {

@@ -171,6 +171,10 @@ void Ball_Bounce(float dt){
     //touch either paddle -- change x direction
     if(collide_with_lp() || collide_with_rp()){
         ball_movement.x = -ball_movement.x;
+        
+        //to fix the overlap if speed is too fast that the ball crush into the paddle
+        if(collide_with_lp()) ball_position.x = -4.25f;
+        else if(collide_with_rp()) ball_position.x = 4.25f;
     }
     
     ball_position += ball_movement * ball_speed * dt;

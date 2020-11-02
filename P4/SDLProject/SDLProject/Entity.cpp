@@ -59,7 +59,8 @@ void Entity::CheckCollisionsY(Entity *objects, int objectCount)
                
            }
            else if (velocity.y < 0) {
-               position.y += penetrationY; velocity.y = 0;
+               position.y += penetrationY;
+               velocity.y = 0;
            }
        }
    }
@@ -79,8 +80,9 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount)
                velocity.x = 0;
                
            }
-           else if (velocity.x < 0) {
-               position.x += penetrationX; velocity.x = 0;
+           else if (velocity.x <= 0) {
+               position.x += penetrationX;
+               velocity.x = 0;
            }
        }
    }
@@ -128,15 +130,15 @@ void Entity::Update(float deltaTime, Entity *player, Entity *platforms, int plat
         
         velocity += movement.x * speed * deltaTime;
         velocity += acceleration * deltaTime;
+    
+        position.x += velocity.x * deltaTime;
+        CheckCollisionsX(enemies, enemyCount);
+        CheckCollisionsX(platforms, platformCount);
         
         position.y += velocity.y * deltaTime;
         CheckCollisionsY(enemies, enemyCount);
         CheckCollisionsY(platforms, platformCount);
         
-    
-        position.x += velocity.x * deltaTime;
-        CheckCollisionsX(enemies, enemyCount);
-        CheckCollisionsX(platforms, platformCount);
     }
     
     else if(entityType == ENEMY){
@@ -233,13 +235,14 @@ bool Entity::DetectDist(Entity *player, float d){
 void Entity::AI_Walker(Entity *player){
     switch(aiState){
         case(IDLE):
-            if(DetectDist(player, 5.0f)) aiState = WALKING;
+            velocity = glm::vec3(0);
+            if(DetectDist(player, 6.0f)) aiState = WALKING;
             break;
         case(WALKING):
-            if(velocity.x == 0) velocity.x = rand()%2 == 0 ? 1:-1;
-            if(position.x < 3.5f) velocity.x = 1;
-            else if (position.x > 6.5f) velocity.x = -1;
-            if(!DetectDist(player, 5.0f)) aiState = IDLE;
+            if(velocity.x == 0) velocity.x = rand()%2 == 0 ? 2:-2;
+            if(position.x < 3.5f) velocity.x = 2;
+            else if (position.x > 6.5f) velocity.x = -2;
+            if(!DetectDist(player, 6.0f)) aiState = IDLE;
             break;
     }
 }
@@ -248,20 +251,21 @@ void Entity::AI_Jumper(Entity *player){
     acceleration.y = -9.81f;
     switch(aiState){
         case(IDLE):
-            if(velocity.x == 0) velocity.x = rand()%2 == 0 ? 1:-1;
-            if(position.x < 2.5f) velocity.x = 1;
-            else if (position.x > 6.5f) velocity.x = -1;
-            if(DetectDist(player, 5.0f)) aiState = JUMPING;
+            if(velocity.x == 0) velocity.x = rand()%2 == 0 ? 3:-3;
+            if(position.x < 2.5f) velocity.x = 3;
+            else if (position.x > 6.5f) velocity.x = -3;
+            if(DetectDist(player, 6.0f)) aiState = JUMPING;
             break;
             
         case(JUMPING):
-            if(velocity.x == 0) velocity.x = rand()%2 == 0 ? 1:-1;
+            if(velocity.x == 0) velocity.x = rand()%2 == 0 ? 3:-3;
             if(position.y <= -4.5f){
-                velocity.y = rand()%5 + 4;
-                if(position.x < 3.5f) velocity.x = 1;
-                else if (position.x > 6.5f) velocity.x = -1;
+                velocity.y = rand()%4 + 4;
+                if(position.x < 3.5f) velocity.x = 3;
+                else if (position.x > 6.5f) velocity.x = -3;
             }
-            if(!DetectDist(player, 5.0f)) aiState = IDLE;
+            //if(position.y >= -1.0f) position.y = -1.0f;
+            if(!DetectDist(player, 6.0f)) aiState = IDLE;
             break;
             
     }

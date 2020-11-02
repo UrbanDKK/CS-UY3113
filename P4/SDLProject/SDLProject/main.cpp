@@ -61,7 +61,7 @@ GLuint LoadTexture(const char* filePath) {
 void Initialize() {
     
     SDL_Init(SDL_INIT_VIDEO);
-    displayWindow = SDL_CreateWindow("Lunar Lander", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL);
+    displayWindow = SDL_CreateWindow("Devils Out", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL);
     SDL_GLContext context = SDL_GL_CreateContext(displayWindow);
     SDL_GL_MakeCurrent(displayWindow, context);
     
@@ -99,6 +99,7 @@ void Initialize() {
     state.player->speed = 3.0f;
     state.player->jumpPower = 5.0f;
     state.player->textureID = LoadTexture("Player.png");
+    state.player->width = 1.0f;
     
     
     //platform
@@ -161,6 +162,7 @@ void Initialize() {
         state.enemies[i].textureID = enemyTextureID;
         state.enemies[i].entityType = ENEMY;
         state.enemies[i].aiState = IDLE;
+        state.enemies[i].width = 1.0f;
     }
     state.enemies[2].textureID = LoadTexture("Enemy_flying.png");
     
@@ -292,12 +294,12 @@ void Render() {
     DrawText(&program, fontTextureID, "Jumping(space) on the devils to kill them" , 0.5f, -0.25f, glm::vec3(-7.5f, 5.5f, 0));
     
     if(state.player->defeated_enemy == ENEMY_COUNT){
-        DrawText(&program, fontTextureID, "You Win" , 0.5f, -0.25f, glm::vec3(-2.0f, 1.0f, 0));
+        DrawText(&program, fontTextureID, "You Win" , 1.0f, -0.25f, glm::vec3(-2.0f, 1.0f, 0));
         state.player->isActive = false;
         for(int i = 0; i < ENEMY_COUNT; i++) state.enemies[i].isActive = false;
     }
     else if(state.player->destroy){
-        DrawText(&program, fontTextureID, "You Lose" , 0.5f, -0.25f, glm::vec3(-2.0f, 1.0f, 0));
+        DrawText(&program, fontTextureID, "You Lose" , 1.0f, -0.25f, glm::vec3(-3.0f, 1.0f, 0));
     }
     
     SDL_GL_SwapWindow(displayWindow);

@@ -15,6 +15,7 @@
 		DBDF1B692323DEEA007CECB1 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDF1B662323DEEA007CECB1 /* SDL2.framework */; };
 		DBDF1B6A2323DEEA007CECB1 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDF1B672323DEEA007CECB1 /* SDL2_image.framework */; };
 		DBDF1B6B2323DEEA007CECB1 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDF1B682323DEEA007CECB1 /* SDL2_mixer.framework */; };
+		E23EB4CD256A0EAB00A8FACF /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E23EB4CB256A0EAB00A8FACF /* Scene.cpp */; };
 		E24A6053253C8F9A00201733 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E24A6051253C8F9A00201733 /* Entity.cpp */; };
 		E24A6070253CE82700201733 /* font1.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = E24A606E253CE2F600201733 /* font1.png */; };
 		E25FAF65254F1A5100FAFEF8 /* Player.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = E25FAF62254F187900FAFEF8 /* Player.png */; };
@@ -56,6 +57,8 @@
 		DBDF1B662323DEEA007CECB1 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		DBDF1B672323DEEA007CECB1 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
 		DBDF1B682323DEEA007CECB1 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = ../../../../../Library/Frameworks/SDL2_mixer.framework; sourceTree = "<group>"; };
+		E23EB4CB256A0EAB00A8FACF /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		E23EB4CC256A0EAB00A8FACF /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		E24A6051253C8F9A00201733 /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		E24A6052253C8F9A00201733 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		E24A606E253CE2F600201733 /* font1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font1.png; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 				E25FAF62254F187900FAFEF8 /* Player.png */,
 				E25FAF63254F187F00FAFEF8 /* Enemy.png */,
 				E25FAF73254F4C3F00FAFEF8 /* Tile2.png */,
+				E23EB4CB256A0EAB00A8FACF /* Scene.cpp */,
+				E23EB4CC256A0EAB00A8FACF /* Scene.h */,
 				E25FAF6B254F390F00FAFEF8 /* Enemy_flying.png */,
 				E25FAF60254F142D00FAFEF8 /* Tile.png */,
 				DBDF1B5B2323DE8D007CECB1 /* glm */,
@@ -188,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E23EB4CD256A0EAB00A8FACF /* Scene.cpp in Sources */,
 				DBDF1B532323DE3F007CECB1 /* main.cpp in Sources */,
 				E24A6053253C8F9A00201733 /* Entity.cpp in Sources */,
 				DBDF1B5E2323DE8D007CECB1 /* ShaderProgram.cpp in Sources */,
